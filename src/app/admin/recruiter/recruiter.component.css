@@ -1,0 +1,13 @@
+table{
+  width: 100% !important;
+
+}
+mat-form-field{
+  width: 100%;
+}
+
+.main{
+  background-color: #303030;
+  height: 100%;
+  width: 100%;
+}

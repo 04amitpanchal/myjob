@@ -1,0 +1,19 @@
+<div class="main">
+  <button onclick="document.getElementById('id01').style.display='block'">Manage-User</button>
+<div id="id01" class="modal" >
+  <span onclick="document.getElementById('id01').style.display='none'"
+    class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" style="height:300px;width:600px;padding:20px !important;margin-top: 10%;">
+    <div style="margin-left: 300px;padding-left: 20px;">
+      <a [routerLink]="['/recruiter']" routerLinkActive="router-link-active">
+      <img src="{{../../../../assets/icons/recicon.jpg" style="border:5pxsolid black;height:270px;width:240px;position:absolute;padding: 10px;" alt="Avatar" class="avatar">
+    </a>
+    </div>
+    <div class="row">
+      <a [routerLink]="['/employee']" routerLinkActive="router-link-active" >
+      <img  src="{{../../../../assets/icons/empicon.jpg" style="border:5pxsolid black;height:275px;width:250px;padding: 10px;padding-bottom: 5px;" alt="Avatar" class="avatar">
+    </a>
+    </div>
+  </form>
+</div>
+</div>
