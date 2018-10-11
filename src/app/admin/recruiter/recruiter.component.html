@@ -1,11 +1,14 @@
+<div class="container-fluid">
 <div class="main">
   <div class="row">
     <div class="col-md-12" style="margin-top: 20px;">
-      <mat-form-field style="text-align: center;background-color: #1ac8f3;color: #303030">
-        <input  matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        <!-- <button [routerLink]="['/addrecruiter']" routerLinkActive="router-link-active"  style="background-color: whitesmoke;margin-bottom: 30px !important;margin-left: 2%;height: 100px;width: 100px;" mat-mini-fab color="primary"> -->
+                      <!-- </button> -->
+      <mat-form-field style="text-align: center;background-color: #1ac8f3;color: #303030;width: 98%;margin-left: 10px;">
+        <input  matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Company here">
       </mat-form-field>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table class="col-md-12" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <ng-container matColumnDef="checkItem" >
           <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:10px;font-weight: bold;">
@@ -15,29 +18,24 @@
         </ng-container>
 
         <ng-container matColumnDef="recphoto" >
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:23px;font-weight: bold;">Company-Logo</th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;">Company-Logo</th>
           <td mat-cell *matCellDef="let element"><img src="{{../../../../../assets/icons/recicon.jpg" style="height: 100px;width:100px;" alt=""></td>
         </ng-container>
 
 
-      <!-- <ng-container matColumnDef="rec_id" >
-        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:23px;font-weight: bold;"> rec id </th>
-        <td mat-cell *matCellDef="let element">{{element.rec_id}}</td>
-      </ng-container> -->
-
 
       <ng-container matColumnDef="company_name" >
-        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:23px;font-weight: bold;"> company name </th>
+        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> company name </th>
         <td mat-cell *matCellDef="let element">{{element.company_name}}</td>
       </ng-container>
 
       <ng-container matColumnDef="company_web" >
-        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:23px;font-weight: bold;"> Website </th>
+        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Website </th>
         <td mat-cell *matCellDef="let element">{{element.company_web}}</td>
       </ng-container>
 
       <ng-container matColumnDef="company_type" >
-        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:23px;font-weight: bold;"> Company Type </th>
+        <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Company Type </th>
         <td mat-cell *matCellDef="let element">{{element.company_type}}</td>
       </ng-container>
 
@@ -54,13 +52,19 @@
   </table>
 
 
-          <mat-paginator   [pageSizeOptions]="[5, 10, 15, 20,25]" showFirstLastButtons></mat-paginator>
-          <br><br>
-          <button  class="btn" style="background-color: #1ac8f3;height:50px;width: 100%;" (click)="onRemove()">
-            <span class="glyphicon glyphicon-trash">remove
+          <mat-paginator style="width: 98%;margin-left: 10px;"   [pageSizeOptions]="[2, 10, 15, 20,25]" showFirstLastButtons></mat-paginator>
+          <br>
+          <button   mat-raised-button class="btn" style="margin-left:10px;background-color: red;height: 80px;width: 200px;" (click)="removeRecruiter()">
+              <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+              <p style="color:black;margin-top: 3px !important;">Remove Company</p>
+            </button>
 
-            </span>
+          <button  mat-raised-button class="btn" style="margin-left:10px;background-color: #1ac8f3;height: 80px;width: 200px;" >
+          <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">person_add</mat-icon>
+            <p style="color:black;margin-top: 3px !important;">Add Company</p>
           </button>
 
+
   </div>
   </div>
+</div>

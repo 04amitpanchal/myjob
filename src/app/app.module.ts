@@ -7,16 +7,28 @@ import { AdminComponent } from './admin/admin.component';
 import { routing } from "../app/routing_file/app.route";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCheckboxModule, MatFormFieldModule, MatTableModule, MatInputModule, MatPaginatorModule } from '@angular/material';
+import { MatCheckboxModule, MatFormFieldModule, MatTableModule, MatInputModule, MatPaginatorModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule, MatSelectModule, MatOptionModule, ErrorStateMatcher } from '@angular/material';
 import { RecruiterComponent } from './admin/recruiter/recruiter.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { MenuComponent } from './menu/menu.component';
+import { AddrecruiterComponent } from './addrecruiter/addrecruiter.component';
+import { UpdateEmpComponent } from './admin/employee/update-emp/update-emp.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     RecruiterComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    DashboardComponent,
+    UserLoginComponent,
+    MenuComponent,
+    AddrecruiterComponent,
+    UpdateEmpComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +40,18 @@ import { EmployeeComponent } from './admin/employee/employee.component';
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import { RemoverecService } from '../../services/removerec.service';
 export class RecruiterComponent implements OnInit {
   recruiterdetails:Adminclass[]=[];
   i:number;
-  rec1:Adminclass[]=[];
+  newrecruiterdetails:Adminclass[]=[];
   dataSource = new MatTableDataSource(this.recruiterdetails);
   displayedColumns: string[] = ['checkItem','recphoto','company_name','company_web','company_type'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -21,42 +21,45 @@ export class RecruiterComponent implements OnInit {
   ngOnInit() {
     this.admin.getAllAdmin().subscribe(
       (data:Adminclass[])=>{
-        this.dataSource.paginator = this.paginator;
-        console.log(data);
         this.recruiterdetails=data;
+        console.log(data);
+        this.dataSource.paginator = this.paginator;
         this.dataSource.data=data;
       }
     );
   }
 
-  onRemove(item:Adminclass)
+
+
+  removeRecruiter()
   {
 
-      if (this.rec1==null) {
+      if (this.newrecruiterdetails==null) {
           alert("You need to select Items first Then only proceed furter");
       } else {
-        this.removerec.removeRec(this.rec1).subscribe(
+        this.removerec.removeRec(this.newrecruiterdetails).subscribe(
           (x:any)=>{
-          for(this.i=0;this.i<this.rec1.length;this.i++){
-          if (this.recruiterdetails.find(x=>x==this.rec1[this.i])) {
-            this.recruiterdetails.splice(this.recruiterdetails.indexOf(this.rec1[this.i]));
+          for(this.i=0;this.i<this.newrecruiterdetails.length;this.i++){
+          if (this.recruiterdetails.find(x=>x==this.newrecruiterdetails[this.i])) {
+            this.recruiterdetails.splice(this.recruiterdetails.indexOf(this.newrecruiterdetails[this.i]));
           }
          }
-         this.dataSource.data=this.recruiterdetails;
+          this.dataSource.data=this.recruiterdetails;
         });
       }
-
+      // this.ngOnInit();
 
   }
 
+
   chackChanged(item:Adminclass){
-    if (this.rec1.find(x=>x==item)) {
-      this.rec1.splice(this.rec1.indexOf(item),1);
+    if (this.newrecruiterdetails.find(x=>x==item)) {
+      this.newrecruiterdetails.splice(this.newrecruiterdetails.indexOf(item),1);
     }
     else{
-      this.rec1.push(item);
+      this.newrecruiterdetails.push(item);
     }
-    console.log(this.rec1);
+    console.log(this.newrecruiterdetails);
   }
 
 

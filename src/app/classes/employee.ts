@@ -4,6 +4,7 @@ export class emp{
     public emp_password?:string,
     public first_name?:string,
     public last_name?:string,
+    public country?:string,
     public city?:string,
     public state?:string,
     public emp_field?:string,

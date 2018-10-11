@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { GetAllEmplyeeService } from '../../services/get-all-emplyee.service';
 import { emp } from '../../classes/employee';
 import { RemoveEmpService } from '../../services/remove-emp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -17,11 +18,12 @@ export class EmployeeComponent implements OnInit {
   i:number;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllEmpDetails);
-  displayedColumns: string[] = ['checkItem','Empphoto','emp_id','first_name','emp_field'];
+  displayedColumns: string[] = ['checkItem','Empphoto','emp_id','first_name','emp_field','Action'];
 
   constructor(
        private getEmp:GetAllEmplyeeService,
-       private removeEmpObj:RemoveEmpService
+       private removeEmpObj:RemoveEmpService,
+       private _route:Router
     ){}
 
   ngOnInit() {
@@ -63,6 +65,11 @@ export class EmployeeComponent implements OnInit {
 
   }
 
+
+  updateEmp(element:emp){
+    this._route.navigate(['/updateEmp',element.emp_id]);
+
+  }
 
   chackChanged(item:emp){
     if (this.getemp.find(x=>x==item)) {

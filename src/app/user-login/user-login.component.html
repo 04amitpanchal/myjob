@@ -1,0 +1,32 @@
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Cancel">&times;</span>
+
+  <!-- Modal Content -->
+  <form class="modal-content animate">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="email" [(ngModel)]="rec_id" placeholder="Enter Username" required>
+
+      <label><b>Password</b></label>
+      <input type="password" [(ngModel)]="password" placeholder="Enter Password"  required>
+
+      <button  (click)="onLoginVerify()" >Login</button>
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button  type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>

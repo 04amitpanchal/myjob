@@ -1,0 +1,83 @@
+<div class="container-fluid" style="position:static;">
+  <div class="row" >
+
+    <div class="col-md-12" >
+        <h1 style="text-align: center;margin-top: 20px;">Update Employee Profile</h1>
+      <mat-form-field id="emp_id">
+      <input [(ngModel)]="emp_id" matInput placeholder="Email id" disabled>
+    </mat-form-field>
+    <mat-form-field id="emp_password">
+      <input  [(ngModel)]="emp_password" matInput placeholder="password">
+    </mat-form-field>
+    <mat-form-field id="fname">
+      <input [(ngModel)]="first_name" matInput placeholder="First Name">
+    </mat-form-field>
+    <mat-form-field id="lname">
+      <input  [(ngModel)]="last_name" matInput placeholder="Last Name">
+    </mat-form-field>
+
+      <mat-form-field  id="country">
+            <mat-select [(value)]="selected" >
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">india</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field id="state">
+            <mat-select >
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field id="city">
+            <mat-select >
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field id="Empfield">
+            <mat-select >
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <div [(ngModel)]="emp_photo" class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;background-color: black;">
+            <img src="" alt="" >
+          </div>
+          <br>
+          <!-- <button class="btn" id="uploadimg"> -->
+            <!-- <mat-icon type="file">cloud_upload</mat-icon> -->
+            <span class="btn btn-primary btn-file" id="uploadimg">
+              <mat-icon>
+                      cloud_upload
+              </mat-icon>
+              <input type="file"><br>&nbsp;Upload
+            </span>
+          <!-- </button> -->
+          <br>
+          <br>
+          <button class="btn" style="background-color: rgb(137, 253, 21);border:none;color: white;" id="Back" id="save">
+              <!-- <span class="glyphicons glyphicons-floppy-saved" >
+
+                </span> -->
+                <mat-icon>save_alt</mat-icon><br>&nbsp;Save
+          </button>
+          <button class="btn" style="background-color:#303030;border:none;color: white;" id="Back" >
+              <!-- <span class="glyphicons glyphicons-floppy-saved" >
+
+                </span> -->
+                <mat-icon>arrow_back</mat-icon><br>&nbsp;Back
+          </button>
+          <br><br>
+    </div>
+  </div>
+</div>
