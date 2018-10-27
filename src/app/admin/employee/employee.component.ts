@@ -16,6 +16,7 @@ export class EmployeeComponent implements OnInit {
   getAllEmpDetails:emp[]=[];
   getemp:emp[]=[];
   i:number;
+  countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllEmpDetails);
   displayedColumns: string[] = ['checkItem','Empphoto','emp_id','first_name','emp_field','Action'];
@@ -37,13 +38,13 @@ export class EmployeeComponent implements OnInit {
     );
   }
 
-  onchange(){
-    if (this.citem) {
+  // onchange(){
+  //   if (this.citem) {
 
-    } else {
+  //   } else {
 
-    }
-  }
+  //   }
+  // }
 
   onRemove(item:Adminclass)
   {
@@ -80,7 +81,10 @@ export class EmployeeComponent implements OnInit {
     }
     console.log(this.getemp);
   }
-
+  AddEmp()
+  {
+    this._route.navigate(['/empAdd']);
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

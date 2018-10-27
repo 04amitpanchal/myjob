@@ -1,0 +1,63 @@
+<div class="container-fluid" style="background: color #c4c2c2;" >
+  <div class="row" >
+    <div class="col-md-12" >
+        <h1 style="text-align: center;margin-top: 20px;">update rectruiter Profile</h1>
+      <mat-form-field id="rec_id">
+        <input [(ngModel)]="rec_id" matInput placeholder="Email id"  placeholder="Email" [formControl]="emailFormControl">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+         Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+         Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field id="password">
+      <input  [(ngModel)]="password" matInput placeholder="password">
+    </mat-form-field>
+    <br>
+    <mat-form-field id="companyname">
+      <input [(ngModel)]="company_name" matInput placeholder="Company Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field id="companyweb">
+      <input  [(ngModel)]="company_web" matInput placeholder="Company web">
+    </mat-form-field>
+    <br>
+    <mat-form-field id="adderess">
+      <input [(ngModel)]="adderess" matInput placeholder="Adderess">
+    </mat-form-field>
+
+    <mat-form-field id="companytype">
+      <input [(ngModel)]="company_type" matInput placeholder="company type">
+    </mat-form-field>
+
+          <br>
+          <div  class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;">
+            <img  alt="">
+          </div>
+
+          <br>
+            <span class="btn btn-primary btn-file" id="uploadimg">
+              <mat-icon>
+                      cloud_upload
+              </mat-icon>
+              <input type="file" (change)="onChange($event)" [(ngModel)]="rec_photo"><br>&nbsp;Upload
+            </span>
+
+          <br>
+          <br>
+          <button (click)="updaterecDetails()" class="btn" style="background-color: rgb(137, 253, 21);border:none;color: white;" id="Back" id="save">
+                <mat-icon>plus</mat-icon><br>&nbsp;Save Info
+          </button>
+          <button (click)="backPage()" class="btn" style="background-color:#303030;border:none;color: white;" id="Back" >
+                          <mat-icon>arrow_back</mat-icon><br>&nbsp;Back
+          </button>
+          <br><br>
+    </div>
+  </div>
+</div>
+
+
+

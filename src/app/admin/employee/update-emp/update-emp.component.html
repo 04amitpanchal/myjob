@@ -1,10 +1,9 @@
-<div class="container-fluid" style="position:static;">
+<div class="container-fluid" style="background: color #c4c2c2;" >
   <div class="row" >
-
     <div class="col-md-12" >
         <h1 style="text-align: center;margin-top: 20px;">Update Employee Profile</h1>
       <mat-form-field id="emp_id">
-      <input [(ngModel)]="emp_id" matInput placeholder="Email id" disabled>
+      <input [(ngModel)]="emp_id" matInput placeholder="Email id" >
     </mat-form-field>
     <mat-form-field id="emp_password">
       <input  [(ngModel)]="emp_password" matInput placeholder="password">
@@ -17,67 +16,55 @@
     </mat-form-field>
 
       <mat-form-field  id="country">
-            <mat-select [(value)]="selected" >
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">india</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
-            </mat-select>
+            <mat-select [(value)]="selected_country" [(ngModel)]="country_model_value">
+              <mat-option value="option1">Country</mat-option>
+            <mat-option  *ngFor="let country of country_list" [value]="country">{{country}}</mat-option>
+               </mat-select>
           </mat-form-field>
           <mat-form-field id="state">
-            <mat-select >
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
+            <mat-select [(value)]="selected_state" [(ngModel)]="state_model_value" >
+              <mat-option value="option1">State</mat-option>
+              <mat-option *ngFor="let state of state_list" [value]="state">{{state}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field id="city">
-            <mat-select >
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
-            </mat-select>
+            <mat-select [(value)]="selected_city" [(ngModel)]="city_model_value">
+                <mat-option value="option1">city</mat-option>
+            <mat-option *ngFor="let city of city_list" [value]="city">{{city}}</mat-option>
+                          </mat-select>
           </mat-form-field>
           <br>
           <mat-form-field id="Empfield">
-            <mat-select >
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
+            <mat-select [(value)]="selected_department"  [(ngModel)]="department_model_value" >
+                <mat-option value="option1">Department</mat-option>
+                <mat-option *ngFor="let dep of department_list"  [value]="dep">{{dep}}</mat-option>
             </mat-select>
           </mat-form-field>
           <br>
-          <div [(ngModel)]="emp_photo" class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;background-color: black;">
-            <img src="" alt="" >
+          <div  class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;">
+            <img  alt="">
           </div>
+
           <br>
-          <!-- <button class="btn" id="uploadimg"> -->
-            <!-- <mat-icon type="file">cloud_upload</mat-icon> -->
             <span class="btn btn-primary btn-file" id="uploadimg">
               <mat-icon>
                       cloud_upload
               </mat-icon>
-              <input type="file"><br>&nbsp;Upload
+              <input type="file" (change)="onChange($event)" [(ngModel)]="emp_photo"><br>&nbsp;Upload
             </span>
-          <!-- </button> -->
-          <br>
-          <br>
-          <button class="btn" style="background-color: rgb(137, 253, 21);border:none;color: white;" id="Back" id="save">
-              <!-- <span class="glyphicons glyphicons-floppy-saved" >
 
-                </span> -->
+          <br>
+          <br>
+          <button (click)="updateEmpDetails()" class="btn" style="background-color: rgb(137, 253, 21);border:none;color: white;" id="Back" id="save">
                 <mat-icon>save_alt</mat-icon><br>&nbsp;Save
           </button>
-          <button class="btn" style="background-color:#303030;border:none;color: white;" id="Back" >
-              <!-- <span class="glyphicons glyphicons-floppy-saved" >
-
-                </span> -->
-                <mat-icon>arrow_back</mat-icon><br>&nbsp;Back
+          <button (click)="backPage()" class="btn" style="background-color:#303030;border:none;color: white;" id="Back" >
+                          <mat-icon>arrow_back</mat-icon><br>&nbsp;Back
           </button>
           <br><br>
     </div>
   </div>
 </div>
+
+
+

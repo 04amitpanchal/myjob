@@ -3,6 +3,7 @@ import { Adminclass } from '../../classes/adminclass';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { AdminserviceService } from '../../services/adminservice.service';
 import { RemoverecService } from '../../services/removerec.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recruiter',
@@ -14,9 +15,9 @@ export class RecruiterComponent implements OnInit {
   i:number;
   newrecruiterdetails:Adminclass[]=[];
   dataSource = new MatTableDataSource(this.recruiterdetails);
-  displayedColumns: string[] = ['checkItem','recphoto','company_name','company_web','company_type'];
+  displayedColumns: string[] = ['checkItem','recphoto','company_name','company_web','company_type','update'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private admin:AdminserviceService,private removerec:RemoverecService) { }
+  constructor(private admin:AdminserviceService,private removerec:RemoverecService,private _route:Router) { }
 
   ngOnInit() {
     this.admin.getAllAdmin().subscribe(
@@ -25,6 +26,7 @@ export class RecruiterComponent implements OnInit {
         console.log(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.data=data;
+
       }
     );
   }
@@ -67,5 +69,13 @@ export class RecruiterComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  addrec()
+  {
+    this._route.navigate(['/addrec']);
+  }
 
+  updateRec(element:Adminclass)
+  {
+    this._route.navigate(['/updaterec',element.rec_id]);
+  }
 }
