@@ -68,6 +68,8 @@ export class UpdaterecComponent implements OnInit {
        }
        else{
        const fd=new FormData();
+       // this.id=this._aroute.snapshot.params['id'];
+       // alert(this.id);
        fd.append('rec_id',this.rec_id);
        fd.append('password',this.password);
        fd.append('company_name',this.company_name);
@@ -75,15 +77,16 @@ export class UpdaterecComponent implements OnInit {
        fd.append('adderess',this.adderess);
        fd.append('company_type',this.company_type);
        fd.append('image',this.selectedFile,this.selectedFile.name);
-      //  console.log(fd);
-        this.updaterec.updaterec(fd).subscribe(
-          (data:any)=>{
-            console.log("sucess");
-          }
-        );
-      }
-     }
+       console.log(fd);
+       this.updaterec.updaterec(fd).subscribe(
+         (data:any)=>{
+                 console.log(data);
+                 alert("emp added sucessfully sucessfully");
+         }
+       );
 
+     }
+     }
      backPage()
      {
          this._route.navigate(['/recruiter']);

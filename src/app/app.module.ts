@@ -20,6 +20,13 @@ import { UpdaterecComponent } from './admin/recruiter/updaterec/updaterec.compon
 import { EmpAddComponent } from './admin/employee/emp-add/emp-add.component';
 import { AddrecComponent } from './admin/recruiter/addrec/addrec.component';
 import { TempComponent } from './temp/temp.component';
+import { JquereryLoginComponent } from './jquerery-login/jquerery-login.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { JobsComponent } from './admin/jobs/jobs.component';
+import { VisitorPageComponent } from './visitor-page/visitor-page.component';
+import { AddjobComponent } from './admin/jobs/addjob/addjob.component';
+import { RemovejobComponent } from './admin/jobs/removejob/removejob.component';
+import { UpdatejobComponent } from './admin/jobs/updatejob/updatejob.component';
 
 
 @NgModule({
@@ -36,7 +43,14 @@ import { TempComponent } from './temp/temp.component';
     UpdaterecComponent,
     EmpAddComponent,
     AddrecComponent,
-    TempComponent
+    TempComponent,
+    JquereryLoginComponent,
+    SidebarComponent,
+    JobsComponent,
+    VisitorPageComponent,
+    AddjobComponent,
+    RemovejobComponent,
+    UpdatejobComponent
   ],
   imports: [
     ReactiveFormsModule,

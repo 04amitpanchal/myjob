@@ -10,10 +10,13 @@ import { UpdateEmpComponent } from '../admin/employee/update-emp/update-emp.comp
 import { EmpAddComponent } from '../admin/employee/emp-add/emp-add.component';
 import { AddrecComponent } from '../admin/recruiter/addrec/addrec.component';
 import { UpdaterecComponent } from '../admin/recruiter/updaterec/updaterec.component';
+import { JobsComponent } from '../admin/jobs/jobs.component';
+import { AddjobComponent } from '../admin/jobs/addjob/addjob.component';
+import { UpdatejobComponent } from '../admin/jobs/updatejob/updatejob.component';
 
 
 const arr: Routes=[
-  {path:'',component:AdminComponent},
+  // {path:'',component:MenuComponent},
   {path:'recruiter',component:RecruiterComponent},
   {path:'employee',component:EmployeeComponent},
   {path:'userLogin',component:UserLoginComponent},
@@ -21,7 +24,10 @@ const arr: Routes=[
   {path:'updateEmp/:id',component:UpdateEmpComponent},
   {path:'empAdd',component:EmpAddComponent},
   {path:'addrec',component:AddrecComponent},
-  {path:'updaterec/:id',component:UpdaterecComponent}
+  {path:'updaterec/:id',component:UpdaterecComponent},
+  {path:'job',component:JobsComponent},
+  {path:'addjob',component:AddjobComponent},
+  {path:'updatejob',component:UpdatejobComponent}
 ];
 
 

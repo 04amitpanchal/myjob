@@ -6,14 +6,17 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <mat-toolbar style="background-color: #1ac8f3;" color="primary">Menu</mat-toolbar>
+    <mat-toolbar style="background-color: #1ac8f3;" color="primary"></mat-toolbar>
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/employee']" routerLinkActive="router-link-active" >
-        <img src="../../assets/icons/empicon.jpg" style="height:50px;width:50px;border-radius: 50%;">&nbsp;&nbsp;
+        <img src="{{../../assets/user_icon/emp.png" style="height:50px;width:50px;border-radius: 50%;">&nbsp;&nbsp;
         Employee</a>
-      <a mat-list-item [routerLink]="['/recruiter']" routerLinkActive="router-link-active" >
-        <img src="../../assets/icons/recicon.jpg" style="height:50px;width:50px;border-radius: 50%;">&nbsp;&nbsp;
+      <a mat-list-item [routerLink]="['/recruiter']" routerLinkActive="router-link-active" style="margin-top: 5px;" >
+        <img src="{{../../assets/user_icon/rec.png" style="height:50px;width:50px;border-radius: 50%;">&nbsp;&nbsp;
         Recruiter</a>
+        <a mat-list-item [routerLink]="['/job']" routerLinkActive="router-link-active" style="margin-top: 5px;" >
+          <img src="{{../../assets/user_icon/job.png" style="height:50px;width:50px;border-radius: 50%;">&nbsp;&nbsp;
+          Manage jobs</a>
       <!-- <a mat-list-item href="#">Link 3</a> -->
 
 
@@ -34,7 +37,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>myjob</span>
+      <!-- <span>myjob</span> -->
       <button   class="btn btn-sucess" style="margin-left: 90%;" onclick="document.getElementById('id02').style.display='block'">Login</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
@@ -71,3 +74,4 @@
       </div>
     </form>
   </div>
+
