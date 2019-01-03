@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="main">
+      <div class="row">
+        <div class="col-md-12" style="margin-top: 20px;">
+          <mat-form-field style="margin-left: 10px;width: 98%;text-align: center;background-color: #1ac8f3;color: #303030">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Emp here">
+          </mat-form-field>
+      <table class="col-md-12" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:98%;">
+        <ng-container class="col-md-12" matColumnDef="checkItem" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: #303030;font-size:10px;font-weight: bold;">
+            <mat-checkbox style="color: #303030;"></mat-checkbox>&nbsp;&nbsp;Select All
+          </th>
+          <td mat-cell *matCellDef="let element">  <mat-checkbox style="background-color: white !important;color: #303030;" ></mat-checkbox> </td>
+        </ng-container>
+
+
+
+         <ng-container matColumnDef="inter_id" >
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter id </th>
+            <td mat-cell *matCellDef="let element">{{element.inter_id}}</td>
+          </ng-container>
+
+
+         <ng-container matColumnDef="fk_emp_id" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_emp_id </th>
+          <td mat-cell *matCellDef="let element">{{element.fk_emp_id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fk_job_id" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_job_id </th>
+          <td mat-cell *matCellDef="let element">{{element.fk_job_id}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="fk_rec_id" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_rec_id </th>
+          <td mat-cell *matCellDef="let element">{{element.fk_rec_id}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="inter_add" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter_add </th>
+          <td mat-cell *matCellDef="let element">{{element.inter_add}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="inter_date" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter_date </th>
+          <td mat-cell *matCellDef="let element">{{element.inter_date}}</td>
+        </ng-container>
+
+
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Edit Details </th>
+            <td mat-cell *matCellDef="let element">
+
+
+              <button style="margin-left: 25px;background-color: #1ac8f3"  mat-mini-fab color="primary">
+                <mat-icon>create</mat-icon>
+              </button>
+
+            </td>
+
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator  style="width:98%;margin-left: 10px;"  [pageSizeOptions]="[2, 5, 15, 20,25]" showFirstLastButtons></mat-paginator>
+
+      <br>
+      <button  class="btn" style="background-color: red;height:80px;width:200px;margin-left: 10px;" >
+          <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+          <p style="color:black;margin-top: 3px !important;">Remove Employee</p>
+      </button>
+
+      <button class="btn"  style="margin-left:10px;background-color: #1ac8f3;height: 80px;width: 200px;">
+      <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">person_add</mat-icon>
+        <p style="color:black;margin-top: 3px !important;">Add Employee</p>
+      </button>
+
+      <!-- <button  class="btn" style="background-color: #1ac8f3;height: 50px;width:100%;" (click)="onRemove()">Remove</button> -->
+      </div>
+  </div>
+  </div>

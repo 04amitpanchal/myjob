@@ -27,6 +27,9 @@ import { VisitorPageComponent } from './visitor-page/visitor-page.component';
 import { AddjobComponent } from './admin/jobs/addjob/addjob.component';
 import { RemovejobComponent } from './admin/jobs/removejob/removejob.component';
 import { UpdatejobComponent } from './admin/jobs/updatejob/updatejob.component';
+import { ApplyComponent } from './admin/apply/apply.component';
+import { EducationComponent } from './admin/education/education.component';
+import { InterviewComponent } from './admin/interview/interview.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { UpdatejobComponent } from './admin/jobs/updatejob/updatejob.component';
     VisitorPageComponent,
     AddjobComponent,
     RemovejobComponent,
-    UpdatejobComponent
+    UpdatejobComponent,
+    ApplyComponent,
+    EducationComponent,
+    InterviewComponent
   ],
   imports: [
     ReactiveFormsModule,

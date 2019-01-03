@@ -13,6 +13,8 @@ import { UpdaterecComponent } from '../admin/recruiter/updaterec/updaterec.compo
 import { JobsComponent } from '../admin/jobs/jobs.component';
 import { AddjobComponent } from '../admin/jobs/addjob/addjob.component';
 import { UpdatejobComponent } from '../admin/jobs/updatejob/updatejob.component';
+import { ApplyComponent } from '../admin/apply/apply.component';
+import { InterviewComponent } from '../admin/interview/interview.component';
 
 
 const arr: Routes=[
@@ -27,7 +29,9 @@ const arr: Routes=[
   {path:'updaterec/:id',component:UpdaterecComponent},
   {path:'job',component:JobsComponent},
   {path:'addjob',component:AddjobComponent},
-  {path:'updatejob',component:UpdatejobComponent}
+  {path:'updatejob',component:UpdatejobComponent},
+  {path:'apply',component:ApplyComponent},
+  {path:'interview',component:InterviewComponent}
 ];
 
 

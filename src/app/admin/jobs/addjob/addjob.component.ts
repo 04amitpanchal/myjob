@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-addjob',
@@ -15,9 +16,17 @@ export class AddjobComponent implements OnInit {
   salary_min:number;
   salary_max:number;
   fk_company_name:string;
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit() {
+  }
+
+  AddJobDetails(){
+
+  }
+
+  backPage(){
+    this.route.navigate(['/job']);
   }
 
 }

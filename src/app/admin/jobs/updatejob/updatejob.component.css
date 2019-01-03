@@ -1,0 +1,59 @@
+#text{
+  width: 100%;
+}
+#emp_id,#emp_password,#fname,#lname
+{
+    width:90% !important;
+    margin-left:40px;
+}
+#country,#state,#city
+{
+  margin-left: 40px;
+  width:27.5%;
+}
+#Empfield
+{
+  margin-left: 40px;
+  width:27.5%;
+}
+#uploadimg
+{
+  margin-left: 40px;
+  width: 100px;
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  cursor: inherit;
+  display: block;
+}
+#uploadimg
+{
+  width: 150px;
+}
+#uploadshowimg
+{
+  margin-left: 40px;
+}
+#save
+{
+    width: 150px;
+    margin-left: 35%;
+}
+#Back
+{
+  margin-left: 20px;
+  width: 150px;
+}

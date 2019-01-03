@@ -19,12 +19,12 @@ export class JobsComponent implements OnInit {
 
   citem:boolean;
   getAlljobs:job[]=[];
-  getjob:showj[]=[];
+  getjob:job[]=[];
   i:number;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getjob);
   // displayedColumns: string[] = ['checkItem','job_title','posted_date','skill_req','salary_min','salary_max'];
-  displayedColumns:string[]=['job_title','posted_date','job_desc','fk_company_name','action'];
+  displayedColumns:string[]=['checkItem','job_title','posted_date','job_desc','fk_company_name','action'];
   constructor(
        private _route:Router,
        private jobs:ShowjobService
@@ -58,22 +58,26 @@ export class JobsComponent implements OnInit {
   onRemove()
   {
 
-      // if (this.getemp==null) {
-      //     alert("You need to select Items first Then only proceed furter");
-      // } else {
-      //   this.removeEmpObj.removeEmp(this.getemp).subscribe(
-      //     (x:any)=>{
-      //     for(this.i=0;this.i<this.getemp.length;this.i++){
-      //     if (this.getAllEmpDetails.find(x=>x==this.getemp[this.i])) {
-      //       this.getAllEmpDetails.splice(this.getAllEmpDetails.indexOf(this.getemp[this.i]));
-      //     }
-      //    }
-      //    this.dataSource.data=this.getAllEmpDetails;
-      //   });
-      // }
+      if (this.getjob==null) {
+          alert("You need to select Items first Then only proceed furter");
+      } else {
+        this.removeEmpObj.removeEmp(this.getjob).subscribe(
+          (x:any)=>{
+          for(this.i=0;this.i<this.getjob.length;this.i++){
+          if (this.getAlljobs.find(x=>x==this.getjob[this.i])) {
+            this.getAlljobs.splice(this.getAlljobs.indexOf(this.getjob[this.i]));
+          }
+         }
+         this.dataSource.data=this.getAlljobs;
+        });
+      }
 
 
   }
+
+
+
+
 
 
   updateEmp(element:emp){
