@@ -116,7 +116,6 @@ department_model_value:string;
     else{
     const fd=new FormData();
     // this.id=this._aroute.snapshot.params['id'];
-    alert(this.id);
     fd.append('emp_id',this.emp_id.toString());
     fd.append('emp_password',this.emp_password);
     fd.append('first_name',this.first_name);
@@ -130,16 +129,18 @@ department_model_value:string;
     this.addEmp.addEmp(fd).subscribe(
       (data:any)=>{
               console.log(data);
-              alert("emp added sucessfully sucessfully");
-      }
-    );
 
+      }
+
+    );
+    this._route.navigate(['menu/employee']);
   }
+
   }
 
   backPage()
   {
-      this._route.navigate(['/employee']);
+      this._route.navigate(['menu/employee']);
   }
 
 }

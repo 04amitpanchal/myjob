@@ -1,3 +1,99 @@
-<p>
-  education works!
-</p>
+
+<div class="container-fluid">
+  <div class="main">
+      <div class="row">
+        <div class="col-md-12" style="margin-top: 20px;">
+          <mat-form-field style="margin-left: 10px;text-align: center;background-color: #1ac8f3;color: #303030;width: 100%;">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Response here">
+          </mat-form-field>
+      <table class="col-md-12" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+        <ng-container class="col-md-12" matColumnDef="checkItem" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: #303030;font-size:10px;font-weight: bold;">
+            <mat-checkbox style="color: #303030;"></mat-checkbox>&nbsp;&nbsp;Select All
+          </th>
+          <td mat-cell *matCellDef="let element">  <mat-checkbox (change)="chackChanged(element)" style="background-color: white !important;color: #303030; "></mat-checkbox> </td>
+        </ng-container>
+
+
+         <ng-container matColumnDef="edu_id" >
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;">  Edu id </th>
+            <td mat-cell *matCellDef="let element">{{element.edu_id}}</td>
+          </ng-container>
+
+
+         <ng-container matColumnDef="fk_emp_id" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp id </th>
+          <td mat-cell *matCellDef="let element">{{element.fk_emp_id}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_qual" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp Qual </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_qual}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_pass_year" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp passing year </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_pass_year}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_uni" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp uni </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_uni}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_exp" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp experience </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_exp}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_skill1" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp skill-1 </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_skill1}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="emp_skill2" >
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp skill-2 </th>
+          <td mat-cell *matCellDef="let element">{{element.emp_skill2}}</td>
+        </ng-container>
+
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Edit Details </th>
+            <td mat-cell *matCellDef="let element">
+
+
+              <button class="btn" (click)="updateEducation(element)" style="background-color:#1ac8f3;">
+                <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">edit</mat-icon>
+             </button>
+
+            </td>
+
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator style="margin-left: 10px;"  [pageSizeOptions]="[5, 10, 15, 20,25]" showFirstLastButtons></mat-paginator>
+
+      <br>
+      <button class="btn" style="background-color: red;height:80px;width:200px;margin-left: 10px;" >
+          <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">delete</mat-icon>
+          <p style="color:black;margin-top: 3px !important;">Remove Education</p>
+      </button>
+
+      <button class="btn" (click)="AddEducation()"  style="margin-left:10px;background-color: #1ac8f3;height: 80px;width: 200px;">
+      <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">person_add</mat-icon>
+        <p style="color:black;margin-top: 3px !important;">Add Education</p>
+      </button>
+
+      <!-- <button  class="btn" style="background-color: #1ac8f3;height: 50px;width:100%;" (click)="onRemove()">Remove</button> -->
+      </div>
+  </div>
+  </div>

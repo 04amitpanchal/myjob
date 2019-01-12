@@ -5,6 +5,7 @@ import { GetAllEmplyeeService } from '../../services/get-all-emplyee.service';
 import { emp } from '../../classes/employee';
 import { RemoveEmpService } from '../../services/remove-emp.service';
 import { Router } from '@angular/router';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-employee',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+  emp_photo:string;
   citem:boolean;
   getAllEmpDetails:emp[]=[];
   getemp:emp[]=[];
@@ -19,7 +21,8 @@ export class EmployeeComponent implements OnInit {
   countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllEmpDetails);
-  displayedColumns: string[] = ['checkItem','Empphoto','emp_id','first_name','emp_field','Action'];
+  displayedColumns: string[] = ['checkItem','Empphoto','emp_id','first_name','emp_field','Action','Apply_dtl'];
+  // selection = new SelectionModel<getemp>(true, []);
 
   constructor(
        private getEmp:GetAllEmplyeeService,
@@ -32,6 +35,7 @@ export class EmployeeComponent implements OnInit {
       (data:emp[])=>{
         this.dataSource.paginator = this.paginator;
         console.log(data);
+        this.emp_photo=data[0].emp_photo;
         this.getAllEmpDetails=data;
         this.dataSource.data=data;
       }
@@ -46,9 +50,13 @@ export class EmployeeComponent implements OnInit {
   //   }
   // }
 
-  onRemove(item:Adminclass)
-  {
+  applied_Job(element:emp){
+    this._route.navigate(['menu/Applied_job',element.emp_id]);
+  }
 
+  onRemove()
+  {
+      this.ngOnInit();
       if (this.getemp==null) {
           alert("You need to select Items first Then only proceed furter");
       } else {
@@ -59,6 +67,7 @@ export class EmployeeComponent implements OnInit {
             this.getAllEmpDetails.splice(this.getAllEmpDetails.indexOf(this.getemp[this.i]));
           }
          }
+         this.ngOnInit();
          this.dataSource.data=this.getAllEmpDetails;
         });
       }
@@ -68,7 +77,8 @@ export class EmployeeComponent implements OnInit {
 
 
   updateEmp(element:emp){
-    this._route.navigate(['/updateEmp',element.emp_id]);
+
+    this._route.navigate(['menu/updateEmp',element.emp_id]);
 
   }
 
@@ -83,7 +93,7 @@ export class EmployeeComponent implements OnInit {
   }
   AddEmp()
   {
-    this._route.navigate(['/empAdd']);
+    this._route.navigate(['menu/empAdd']);
   }
 
   applyFilter(filterValue: string) {

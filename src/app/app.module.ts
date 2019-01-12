@@ -7,7 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { routing } from "../app/routing_file/app.route";
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCheckboxModule, MatFormFieldModule, MatTableModule, MatInputModule, MatPaginatorModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule, MatSelectModule, MatOptionModule, ErrorStateMatcher } from '@angular/material';
+import { MatNativeDateModule,MatDatepickerModule,MatCheckboxModule, MatFormFieldModule, MatTableModule, MatInputModule, MatPaginatorModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatListModule, MatSelectModule, MatOptionModule, ErrorStateMatcher } from '@angular/material';
 import { RecruiterComponent } from './admin/recruiter/recruiter.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,7 +20,6 @@ import { UpdaterecComponent } from './admin/recruiter/updaterec/updaterec.compon
 import { EmpAddComponent } from './admin/employee/emp-add/emp-add.component';
 import { AddrecComponent } from './admin/recruiter/addrec/addrec.component';
 import { TempComponent } from './temp/temp.component';
-import { JquereryLoginComponent } from './jquerery-login/jquerery-login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { JobsComponent } from './admin/jobs/jobs.component';
 import { VisitorPageComponent } from './visitor-page/visitor-page.component';
@@ -28,9 +27,20 @@ import { AddjobComponent } from './admin/jobs/addjob/addjob.component';
 import { RemovejobComponent } from './admin/jobs/removejob/removejob.component';
 import { UpdatejobComponent } from './admin/jobs/updatejob/updatejob.component';
 import { ApplyComponent } from './admin/apply/apply.component';
-import { EducationComponent } from './admin/education/education.component';
 import { InterviewComponent } from './admin/interview/interview.component';
-
+import { AddapplyComponent } from './admin/apply/addapply/addapply.component';
+import { UpdateapplyComponent } from './admin/apply/updateapply/updateapply.component';
+import { AddinterviewComponent } from './admin/interview/addinterview/addinterview.component';
+import { UpdateinterviewComponent } from './admin/interview/updateinterview/updateinterview.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AppliedJobComponent } from './admin/employee/applied-job/applied-job.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ResponseComponent } from "./admin/response/response.component";
+import { EducationComponent } from "./admin/education/education.component";
+import { AddEducationComponent } from './admin/education/add-education/add-education.component';
+import { UpdateEducationComponent } from './admin/education/update-education/update-education.component';
+import { AddResponseComponent } from './admin/response/add-response/add-response.component';
+import { UpdateResponseComponent } from './admin/response/update-response/update-response.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +57,6 @@ import { InterviewComponent } from './admin/interview/interview.component';
     EmpAddComponent,
     AddrecComponent,
     TempComponent,
-    JquereryLoginComponent,
     SidebarComponent,
     JobsComponent,
     VisitorPageComponent,
@@ -55,8 +64,21 @@ import { InterviewComponent } from './admin/interview/interview.component';
     RemovejobComponent,
     UpdatejobComponent,
     ApplyComponent,
+    InterviewComponent,
+    AddapplyComponent,
+    UpdateapplyComponent,
+    AddinterviewComponent,
+    UpdateinterviewComponent,
+    AdminLoginComponent,
+    AppliedJobComponent,
+    SignupComponent,
+    ResponseComponent,
     EducationComponent,
-    InterviewComponent
+    AddEducationComponent,
+    UpdateEducationComponent,
+    AddResponseComponent,
+    UpdateResponseComponent
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -80,7 +102,9 @@ import { InterviewComponent } from './admin/interview/interview.component';
     MatSidenavModule,
     MatListModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

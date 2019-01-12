@@ -3,6 +3,8 @@ import { Router, Data } from '@angular/router';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { applyclass } from 'src/app/classes/apply';
 import { ApplyService } from 'src/app/services/apply.service';
+import { RemoverecService } from 'src/app/services/removerec.service';
+import { RemoveapplyService } from 'src/app/services/removeapply.service';
 
 @Component({
   selector: 'app-apply',
@@ -10,13 +12,14 @@ import { ApplyService } from 'src/app/services/apply.service';
   styleUrls: ['./apply.component.css']
 })
 export class ApplyComponent implements OnInit {
+  user_id:string;
   apply_id:number;
   fk_emp_id:string;
   fk_job_id:number;
   apply_date:Date;
   citem:boolean;
   getAllApplyDetails:applyclass[]=[];
-  getemp:applyclass[]=[];
+  getapply:applyclass[]=[];
   i:number;
   countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -25,7 +28,8 @@ export class ApplyComponent implements OnInit {
 
   constructor(
        private _route:Router,
-       private _getAllapply:ApplyService
+       private _getAllapply:ApplyService,
+       private removeapply:RemoveapplyService
     ){}
 
   ngOnInit() {
@@ -48,44 +52,46 @@ export class ApplyComponent implements OnInit {
   //   }
   // }
 
-  // onRemove(item:Adminclass)
-  // {
-
-  //     if (this.getemp==null) {
-  //         alert("You need to select Items first Then only proceed furter");
-  //     } else {
-  //       this.removeEmpObj.removeEmp(this.getemp).subscribe(
-  //         (x:any)=>{
-  //         for(this.i=0;this.i<this.getemp.length;this.i++){
-  //         if (this.getAllEmpDetails.find(x=>x==this.getemp[this.i])) {
-  //           this.getAllEmpDetails.splice(this.getAllEmpDetails.indexOf(this.getemp[this.i]));
-  //         }
-  //        }
-  //        this.dataSource.data=this.getAllEmpDetails;
-  //       });
-  //     }
-
-
-  // }
-
-
-  // updateEmp(element:emp){
-  //   this._route.navigate(['/updateEmp',element.emp_id]);
-
-  // }
-
-  // chackChanged(item:emp){
-  //   if (this.getemp.find(x=>x==item)) {
-  //     this.getemp.splice(this.getemp.indexOf(item),1);
-  //   }
-  //   else{
-  //     this.getemp.push(item);
-  //   }
-  //   console.log(this.getemp);
-  // }
-  AddEmp()
+  onRemove()
   {
-    this._route.navigate(['/empAdd']);
+
+      // if (this.getapply==null) {
+      //     alert("You need to select Items first Then only proceed furter");
+      // } else {
+        this.removeapply.removeApply(this.getapply).subscribe(
+          (x:any)=>{
+            // console.log(this.getapply);
+          for(this.i=0;this.i<this.getapply.length;this.i++){
+          if (this.getAllApplyDetails.find(x=>x==this.getapply[this.i])) {
+            this.getAllApplyDetails.splice(this.getAllApplyDetails.indexOf(this.getapply[this.i]));
+
+          }
+         }
+        this.ngOnInit();
+         this.dataSource.data=this.getAllApplyDetails;
+
+        });
+      // }
+
+  }
+
+
+  updateApply(element:applyclass){
+      this._route.navigate(['menu/updateApplyDetails',element.apply_id]);
+  }
+
+  chackChanged(item:applyclass){
+    if (this.getapply.find(x=>x==item)) {
+      this.getapply.splice(this.getapply.indexOf(item),1);
+    }
+    else{
+      this.getapply.push(item);
+    }
+    console.log(this.getapply);
+  }
+  addApply()
+  {
+    this._route.navigate(['menu/addApplyDetails']);
   }
 
   applyFilter(filterValue: string) {

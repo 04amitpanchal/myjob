@@ -119,13 +119,13 @@ department_model_value:string;
               alert("details updaated sucessfully");
       }
     );
-
+    this._route.navigate(['menu/employee']);
   }
   }
 
   backPage()
   {
-      this._route.navigate(['/employee']);
+      this._route.navigate(['menu/employee']);
   }
 
 }

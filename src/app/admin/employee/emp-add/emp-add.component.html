@@ -1,6 +1,6 @@
-<div class="container-fluid" style="background: color #c4c2c2;" >
+<div class="container-fluid fixed-top" style="position:-webkit-sticky;position:sticky;">
   <div class="row" >
-    <div class="col-md-12" >
+    <div class="col-md-12" style="position:sticky;">
         <h1 style="text-align: center;margin-top: 20px;">Add Employee Profile</h1>
       <mat-form-field id="emp_id">
         <input [(ngModel)]="emp_id" matInput placeholder="Email id"  placeholder="Email" [formControl]="emailFormControl">
@@ -14,7 +14,7 @@
 
     </mat-form-field>
     <mat-form-field id="emp_password">
-      <input  [(ngModel)]="emp_password" matInput placeholder="password">
+      <input type="password" [(ngModel)]="emp_password" matInput placeholder="password">
     </mat-form-field>
     <mat-form-field id="fname">
       <input [(ngModel)]="first_name" matInput placeholder="First Name">
@@ -49,9 +49,6 @@
             </mat-select>
           </mat-form-field>
           <br>
-          <div  class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;">
-            <img  alt="">
-          </div>
 
           <br>
             <span class="btn btn-primary btn-file" id="uploadimg">
@@ -60,6 +57,11 @@
               </mat-icon>
               <input type="file" (change)="onChange($event)" [(ngModel)]="emp_photo"><br>&nbsp;Upload
             </span>
+
+            <div  class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;">
+              <img src="{{emp_photo}}" style="height: 100px;width:100px;border-radius: 50%;" alt="">{{emp_photo}}
+            </div>
+
 
           <br>
           <br>

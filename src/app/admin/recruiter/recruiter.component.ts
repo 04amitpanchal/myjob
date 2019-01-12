@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./recruiter.component.css']
 })
 export class RecruiterComponent implements OnInit {
+  rec_photo:string;
   recruiterdetails:Adminclass[]=[];
   i:number;
   newrecruiterdetails:Adminclass[]=[];
@@ -23,6 +24,7 @@ export class RecruiterComponent implements OnInit {
     this.admin.getAllAdmin().subscribe(
       (data:Adminclass[])=>{
         this.recruiterdetails=data;
+        this.rec_photo=data[0].rec_photo;
         console.log(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.data=data;
@@ -46,6 +48,7 @@ export class RecruiterComponent implements OnInit {
             this.recruiterdetails.splice(this.recruiterdetails.indexOf(this.newrecruiterdetails[this.i]));
           }
          }
+         this.ngOnInit();
           this.dataSource.data=this.recruiterdetails;
         });
       }
@@ -71,11 +74,11 @@ export class RecruiterComponent implements OnInit {
 
   addrec()
   {
-    this._route.navigate(['/addrec']);
+    this._route.navigate(['menu/addrec']);
   }
 
   updateRec(element:Adminclass)
   {
-    this._route.navigate(['/updaterec',element.rec_id]);
+    this._route.navigate(['menu/updaterec',element.rec_id]);
   }
 }

@@ -70,11 +70,12 @@ export class AddrecComponent implements OnInit{
         );
 
       }
+      this._route.navigate(['menu/recruiter']);
       }
 
       backPage()
       {
-          this._route.navigate(['/recruiter']);
+          this._route.navigate(['menu/recruiter']);
       }
 
     }

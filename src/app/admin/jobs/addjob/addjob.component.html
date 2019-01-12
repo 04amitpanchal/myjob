@@ -1,7 +1,7 @@
 <div class="container-fluid" style="background: color #c4c2c2;" >
   <div class="row" >
     <div class="col-md-12" >
-        <h1 style="text-align: center;margin-top: 20px;">Add Employee Profile</h1>
+        <h1 style="text-align: center;margin-top: 20px;">Add Job Details</h1>
       <mat-form-field id="text">
         <input [(ngModel)]="fk_rec_id" matInput placeholder="Email id"  placeholder="Email">
         <mat-hint>Email is required!</mat-hint>
@@ -18,12 +18,12 @@
       <input  [(ngModel)]="job_title" matInput placeholder="Job Title">
     </mat-form-field>
     <br>
-Date :
-    <!-- <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+
+    <mat-form-field>
+      <input [(ngModel)]="posted_date" matInput [matDatepicker]="picker" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field> -->
+    </mat-form-field>
 
     <br>
     <mat-form-field id="text">

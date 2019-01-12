@@ -1,0 +1,43 @@
+<div class="container-fluid" style="background: color #c4c2c2;" >
+  <div class="row" >
+    <div class="col-md-12" >
+        <h1 style="text-align: center;margin-top: 20px;">Add Interview Details</h1>
+      <mat-form-field id="text">
+        <input  [(ngModel)]="inter_id"  matInput   placeholder="inter_id">
+      </mat-form-field>
+
+      <mat-form-field id="text">
+        <input  [(ngModel)]="fk_emp_id"  matInput   placeholder="emp id">
+      </mat-form-field>
+
+      <mat-form-field id="text">
+        <input  [(ngModel)]="fk_job_id"  matInput  placeholder="job id">
+      </mat-form-field>
+
+      <mat-form-field id="text">
+        <input  [(ngModel)]="fk_rec_id"  matInput placeholder="rec id">
+      </mat-form-field>
+
+      <mat-form-field id="text">
+        <input  [(ngModel)]="inter_add"  matInput placeholder="inter Adderess">
+      </mat-form-field>
+
+      <mat-form-field id="text">
+          <input [(ngModel)]="inter_date" matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+          <button (click)="AddApplyDetails()" class="btn" style="background-color: rgb(137, 253, 21);border:none;color: white;" id="Back" id="save">
+                <mat-icon>plus</mat-icon><br>&nbsp;Add
+          </button>
+          <button (click)="backPage()" class="btn" style="background-color:#303030;border:none;color: white;" id="Back" >
+                          <mat-icon>arrow_back</mat-icon><br>&nbsp;Back
+          </button>
+          <br><br>
+    </div>
+  </div>
+</div>
+
+
+

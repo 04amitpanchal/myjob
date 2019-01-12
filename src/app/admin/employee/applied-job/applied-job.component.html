@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="main">
+      <div class="row">
+        <div class="col-md-12" style="margin-top: 20px;">
+          <!-- <mat-form-field style="text-align: center;background-color: #1ac8f3;color: #303030">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Emp here">
+          </mat-form-field> -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="img" align="center">
+                <img src="http://localhost:3000/images/empPhotoes/{{emp_photo}}" style="height: 100px;width:100px;border-radius: 50%;" alt="">
+                <p>{{emp_name}}</p>
+              </div>
+            </div>
+          </div>
+          <br><br>
+      <table class="col-md-12" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%;">
+
+
+         <ng-container matColumnDef="fk_company_name" >
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Company Name </th>
+            <td mat-cell *matCellDef="let element">{{element.fk_company_name}}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="job_title" >
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Job Title </th>
+            <td mat-cell *matCellDef="let element">{{element.job_title}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="apply_date" >
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Apply Date </th>
+            <td mat-cell *matCellDef="let element">{{element.apply_date}}</td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator   [pageSizeOptions]="[2, 5, 15, 20,25]" showFirstLastButtons></mat-paginator>
+
+
+      <!-- <button  class="btn" style="background-color: #1ac8f3;height: 50px;width:100%;" (click)="onRemove()">Remove</button> -->
+      </div>
+  </div>
+  </div>

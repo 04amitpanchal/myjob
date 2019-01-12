@@ -8,6 +8,8 @@ import { Adminclass } from 'src/app/classes/adminclass';
 import { job } from 'src/app/classes/jobclass';
 import { ShowjobService } from 'src/app/services/showjob.service';
 import { showj } from 'src/app/classes/showjob';
+import { RemovejobService } from 'src/app/services/removejob.service';
+import { element } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-jobs',
@@ -27,15 +29,17 @@ export class JobsComponent implements OnInit {
   displayedColumns:string[]=['checkItem','job_title','posted_date','job_desc','fk_company_name','action'];
   constructor(
        private _route:Router,
-       private jobs:ShowjobService
+       private jobs:ShowjobService,
+       private remove_job:RemovejobService
     ){}
 
   ngOnInit() {
     this.jobs.showjobdetails().subscribe(
-      (data:showj[])=>{
+      (data:job[])=>{
         this.getjob=data;
         this.dataSource.data=data;
-        //this.displayedColumn.paginator = this.paginator;
+        console.log(data);
+        this.dataSource.paginator = this.paginator;
 
 
       }
@@ -51,8 +55,8 @@ export class JobsComponent implements OnInit {
     }
   }
 
-  onUpdateJob(){
-    this._route.navigate(['/updatejob']);
+  onUpdateJob(element:job){
+    this._route.navigate(['menu/updatejob',element.job_id]);
   }
 
   onRemove()
@@ -61,13 +65,14 @@ export class JobsComponent implements OnInit {
       if (this.getjob==null) {
           alert("You need to select Items first Then only proceed furter");
       } else {
-        this.removeEmpObj.removeEmp(this.getjob).subscribe(
+        this.remove_job.removeJob(this.getjob).subscribe(
           (x:any)=>{
           for(this.i=0;this.i<this.getjob.length;this.i++){
           if (this.getAlljobs.find(x=>x==this.getjob[this.i])) {
             this.getAlljobs.splice(this.getAlljobs.indexOf(this.getjob[this.i]));
           }
          }
+         this.ngOnInit();
          this.dataSource.data=this.getAlljobs;
         });
       }
@@ -78,25 +83,27 @@ export class JobsComponent implements OnInit {
 
 
 
+  // updateJob(element:job){
+  //   this._route.navigate(['/updateEmp',element.]);
 
+  // }
 
-  updateEmp(element:emp){
-    this._route.navigate(['/updateEmp',element.emp_id]);
-
+  chackChanged(item:job){
+    if (this.getjob.find(x=>x==item)) {
+      this.getjob.splice(this.getjob.indexOf(item),1);
+    }
+    else{
+      alert(" not found00");
+      this.getjob.push(item);
+    }
+    console.log(this.getjob);
   }
 
-  checkChanged(item:job){
-    // if (this.getjob.find(x=>x==item)) {
-    //   this.getjob.splice(this.getjob.indexOf(item),1);
-    // }
-    // else{
-    //   this.getjob.push(item);
-    // }
-    // console.log(this.getjob);
-  }
+
+
   AddJob()
   {
-    this._route.navigate(['/addjob']);
+    this._route.navigate(['menu/addjob']);
   }
 
   applyFilter(filterValue: string) {

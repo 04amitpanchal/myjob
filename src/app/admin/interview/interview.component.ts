@@ -3,6 +3,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { InterviewClass } from 'src/app/classes/interview';
 import { InterviewService } from 'src/app/services/interview.service';
+import { RemoveinterviewService } from 'src/app/services/removeinterview.service';
 
 @Component({
   selector: 'app-interview',
@@ -15,7 +16,7 @@ export class InterviewComponent implements OnInit {
   fk_job_id:number;
   fk_rec_id:string;
   inter_add:string;
-  inter_date:Date;
+  inter_date:string;
   citem:boolean;
   getAllInterviewDetails:InterviewClass[]=[];
   getInterview:InterviewClass[]=[];
@@ -23,11 +24,12 @@ export class InterviewComponent implements OnInit {
   countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllInterviewDetails);
-  displayedColumns: string[] = ['checkItem','inter_id','fk_emp_id','fk_job_id','fk_rec_id','inter_add','inter_date'];
+  displayedColumns: string[] = ['checkItem','inter_id','fk_emp_id','fk_job_id','fk_rec_id','inter_add','inter_date','Action'];
 
   constructor(
       private interview:InterviewService,
-       private _route:Router
+       private _route:Router,
+       private removeInterviewObj:RemoveinterviewService
     ){}
 
   ngOnInit() {
@@ -49,45 +51,48 @@ export class InterviewComponent implements OnInit {
   //   }
   // }
 
-  // onRemove(item:Adminclass)
-  // {
+  onRemove()
+  {
 
-  //     if (this.getemp==null) {
-  //         alert("You need to select Items first Then only proceed furter");
-  //     } else {
-  //       this.removeEmpObj.removeEmp(this.getemp).subscribe(
-  //         (x:any)=>{
-  //         for(this.i=0;this.i<this.getemp.length;this.i++){
-  //         if (this.getAllEmpDetails.find(x=>x==this.getemp[this.i])) {
-  //           this.getAllEmpDetails.splice(this.getAllEmpDetails.indexOf(this.getemp[this.i]));
-  //         }
-  //        }
-  //        this.dataSource.data=this.getAllEmpDetails;
-  //       });
-  //     }
-
-
-  // }
+      if (this.getInterview==null) {
+          alert("You need to select Items first Then only proceed furter");
+      } else {
+        this.removeInterviewObj.removeInterview(this.getInterview).subscribe(
+          (x:any)=>{
+          for(this.i=0;this.i<this.getInterview.length;this.i++){
+          if (this.getAllInterviewDetails.find(x=>x==this.getInterview[this.i])) {
+            this.getAllInterviewDetails.splice(this.getAllInterviewDetails.indexOf(this.getInterview[this.i]));
+          }
+         }
+         this.ngOnInit();
+         this.dataSource.data=this.getAllInterviewDetails;
+        });
+      }
 
 
-  // updateEmp(element:emp){
-  //   this._route.navigate(['/updateEmp',element.emp_id]);
+  }
 
-  // }
 
-  // chackChanged(item:emp){
-  //   if (this.getemp.find(x=>x==item)) {
-  //     this.getemp.splice(this.getemp.indexOf(item),1);
-  //   }
-  //   else{
-  //     this.getemp.push(item);
-  //   }
-  //   console.log(this.getemp);
-  // }
-  // AddEmp()
-  // {
-  //   this._route.navigate(['/empAdd']);
-  // }
+  updateinterview(element:InterviewClass){
+    this._route.navigate(['menu/updateinterview',element.inter_id]);
+
+  }
+
+  chackChanged(item:InterviewClass){
+    if (this.getInterview.find(x=>x==item)) {
+      this.getInterview.splice(this.getInterview.indexOf(item),1);
+    }
+    else{
+      this.getInterview.push(item);
+    }
+    console.log(this.getInterview);
+  }
+
+
+  addinterview()
+  {
+    this._route.navigate(['menu/addinterview']);
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

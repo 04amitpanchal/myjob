@@ -84,12 +84,12 @@ export class UpdaterecComponent implements OnInit {
                  alert("emp added sucessfully sucessfully");
          }
        );
-
+         this._route.navigate(['menu/recruiter']);
      }
      }
      backPage()
      {
-         this._route.navigate(['/recruiter']);
+         this._route.navigate(['menu/recruiter']);
      }
 
    }
