@@ -19,7 +19,7 @@
 
         <ng-container matColumnDef="recphoto" >
           <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;">Company-Logo</th>
-          <td mat-cell *matCellDef="let element"><img src="http://localhost:3000/images/recPhotoes/{{rec_photo}}" style="height: 100px;width:100px;border-radius: 50%;" alt=""></td>
+          <td mat-cell *matCellDef="let element"><img src="http://localhost:3000/images/recPhotoes/{{element.rec_photo}}" style="height: 100px;width:100px;border-radius: 50%;" alt=""></td>
         </ng-container>
 
 
@@ -65,7 +65,7 @@
   </table>
 
 
-          <mat-paginator style="width: 98%;margin-left: 10px;"   [pageSizeOptions]="[2, 10, 15, 20,25]" showFirstLastButtons></mat-paginator>
+          <mat-paginator style="width: 98%;margin-left: 10px;"   [pageSizeOptions]="[3, 5,10, 15, 20,25]" showFirstLastButtons></mat-paginator>
           <br>
           <button   mat-raised-button class="btn" style="margin-left:10px;background-color: red;height: 80px;width: 200px;" (click)="removeRecruiter()">
               <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">delete</mat-icon>

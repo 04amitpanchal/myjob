@@ -28,9 +28,10 @@ export class AddapplyComponent implements OnInit {
       (data:any)=>{
         // alert("added");
         console.log(data);
+        this.route.navigate(['menu/apply']);
       }
     );
-    this.route.navigate(['menu/apply']);
+
   }
 
   backPage(){

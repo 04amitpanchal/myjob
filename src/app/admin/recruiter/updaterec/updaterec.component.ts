@@ -50,6 +50,7 @@ export class UpdaterecComponent implements OnInit {
           this.password=data[0].password;
           this.company_name=data[0].company_name;
           this.company_web=data[0].company_web;
+          this.rec_photo=data[0].rec_photo;
           this.company_type=data[0].company_type;
           this.adderess=data[0].adderess;
         }
@@ -68,7 +69,7 @@ export class UpdaterecComponent implements OnInit {
        }
        else{
        const fd=new FormData();
-       // this.id=this._aroute.snapshot.params['id'];
+       this.id=this._aroute.snapshot.params['id'];
        // alert(this.id);
        fd.append('rec_id',this.rec_id);
        fd.append('password',this.password);
@@ -82,9 +83,10 @@ export class UpdaterecComponent implements OnInit {
          (data:any)=>{
                  console.log(data);
                  alert("emp added sucessfully sucessfully");
-         }
+                 this._route.navigate(['menu/recruiter']);
+                }
        );
-         this._route.navigate(['menu/recruiter']);
+
      }
      }
      backPage()

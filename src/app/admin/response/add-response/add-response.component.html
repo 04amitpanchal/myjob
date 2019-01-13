@@ -16,7 +16,10 @@
     </mat-form-field>
     <br>
     <mat-form-field id="res_status">
-      <input  [(ngModel)]="res_staus" matInput placeholder="Response Status">
+      <mat-select [(value)]="selected_status" [(ngModel)]="res_staus" placeholder="status">
+       <mat-option *ngFor="let city of status" [value]="city">{{city}}</mat-option>
+
+      </mat-select>
     </mat-form-field>
     <br>
     <mat-form-field id="res_desc">

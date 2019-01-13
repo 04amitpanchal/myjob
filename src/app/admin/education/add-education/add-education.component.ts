@@ -37,10 +37,11 @@ export class AddEducationComponent implements OnInit {
       (data:EducationClass)=>{
         console.log(data);
         alert("Succfully Education Data Added");
+        this._route.navigate(['menu/education']);
       }
     );
 
-    this._route.navigate(['menu/education']);
+
   }
 
 

@@ -28,14 +28,7 @@ export class AdminLoginComponent implements OnInit {
   onCheck()
   {
     // alert("In function");
-    this.getPasswordObj.sendPassword(this.username).subscribe(
-      (data:any)=>{
-          this.originalPassword=data[0].password;
-
-          console.log(this.originalPassword);
-      }
-    );
-    this.adminLoginVerigyObj.adminverify(new  AdminLogin(this.username,this.password)).subscribe(
+      this.adminLoginVerigyObj.adminverify(new  AdminLogin(this.username,this.password)).subscribe(
       (data:AdminLogin[])=>{
 
         if (data.length==1) {
@@ -55,10 +48,19 @@ export class AdminLoginComponent implements OnInit {
   }
 
   forgotPassword(){
-    this.emailObj.email(new EmailClass(this.username,this.originalPassword,"")).subscribe(
+    this.getPasswordObj.sendPassword(this.username).subscribe(
       (data:any)=>{
+          this.originalPassword=data[0].password;
 
-        console.log(data);
+          console.log(this.originalPassword);
+
+          alert(this.originalPassword);
+          this.emailObj.email(new EmailClass(this.username,"Password for your email id "+this.username,this.originalPassword)).subscribe(
+            (data:any)=>{
+              console.log(data);
+              alert("your password is sent on your email account");
+            }
+          );
       }
     );
   }

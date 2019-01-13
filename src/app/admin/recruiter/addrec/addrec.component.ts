@@ -40,7 +40,8 @@ export class AddrecComponent implements OnInit{
 
       }
 
-            onChange(value){
+    onChange(value){
+        // console.log(value);
         this.selectedFile=<File>value.target.files[0];
       }
 
@@ -66,11 +67,12 @@ export class AddrecComponent implements OnInit{
           (data:any)=>{
                   console.log(data);
                   alert("emp added sucessfully sucessfully");
-          }
+                  this._route.navigate(['menu/recruiter']);
+                }
         );
 
       }
-      this._route.navigate(['menu/recruiter']);
+
       }
 
       backPage()

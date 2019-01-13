@@ -44,9 +44,10 @@ export class UpdateapplyComponent implements OnInit {
       (data:any)=>{
         console.log(data);
         // this.update_arr.push(new applyclass(this.apply_id,this.fk_emp_id,this.fk_job_id,this.apply_date));
+        this.route.navigate(['menu/apply']);
       }
     );
-    this.route.navigate(['menu/apply']);
+
    }
 
    backPage(){

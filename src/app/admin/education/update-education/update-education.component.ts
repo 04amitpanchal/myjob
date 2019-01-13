@@ -67,10 +67,11 @@ export class UpdateEducationComponent implements OnInit {
       (data:any)=>{
               console.log(data);
               alert("details updaated sucessfully");
-      }
+              this._route.navigate(['menu/education']);
+            }
     );
 
-    this._route.navigate(['menu/education']);
+
   }
 
 

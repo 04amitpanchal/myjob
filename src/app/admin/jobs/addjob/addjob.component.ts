@@ -32,10 +32,11 @@ export class AddjobComponent implements OnInit {
     this.addJob.addJob(new addjob(this.fk_rec_id,this.job_title,this.posted_date,this.skill_req,this.job_desc,this.salary_min,this.salary_max,this.fk_company_name)).subscribe(
       (data:any)=>{
         alert("added");
+        this.route.navigate(['menu/job']);
         console.log(data);
       }
     );
-      this.route.navigate(['menu/job']);
+
   }
 
   backPage(){

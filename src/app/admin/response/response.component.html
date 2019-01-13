@@ -47,9 +47,9 @@
                 <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">edit</mat-icon>
              </button>
 
-             <button class="btn" (click)="deleteResponse(element)" style="background-color:#1ac8f3;">
+             <!-- <button class="btn" (click)="deleteResponse(element)" style="background-color:#1ac8f3;">
               <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon">delete</mat-icon>
-           </button>
+           </button> -->
 
             </td>
 
@@ -60,7 +60,7 @@
 
       </table>
 
-      <mat-paginator style="margin-left: 10px;"  [pageSizeOptions]="[2, 5, 15, 20,25]" showFirstLastButtons></mat-paginator>
+      <mat-paginator style="margin-left: 10px;"  [pageSizeOptions]="[10, 15, 20,25]" showFirstLastButtons></mat-paginator>
 
       <br>
       <button class="btn" (click)="onRemove()" style="background-color: red;height:80px;width:200px;margin-left: 10px;" >

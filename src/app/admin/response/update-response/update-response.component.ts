@@ -21,6 +21,12 @@ export class UpdateResponseComponent implements OnInit {
   fk_apply_id:number;
   res_status:string;
   res_desc:string;
+  selected_status="";
+  status:string[]=[
+    'None',
+    'Accept',
+    'Reject'
+  ];
 
   constructor(private _route:Router,
     private _getResponseById:GetResponseByIdService,
@@ -38,6 +44,16 @@ export class UpdateResponseComponent implements OnInit {
         this.fk_apply_id=data[0].fk_apply_id;
         this.res_status=data[0].res_status;
         this.res_desc=data[0].res_desc;
+        // if(this.res_status=="None")
+        // {
+        //   this.selected_status="option1";
+        // }
+        // else if(this.res_status="Accept"){
+        //   this.selected_status="option2";
+        // }
+        // else{
+        //   this.selected_status="option3";
+        // }
 
       }
     );
@@ -56,9 +72,10 @@ export class UpdateResponseComponent implements OnInit {
       (data:any)=>{
               console.log(data);
               alert("details updaated sucessfully");
+              this._route.navigate(['menu/response']);
       }
     );
-    this._route.navigate(['menu/response']);
+
 
   }
 

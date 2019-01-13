@@ -30,10 +30,11 @@ export class AddinterviewComponent implements OnInit {
      this.addinterviewobj.addInterview(new InterviewClass(this.inter_id,this.fk_emp_id,this.fk_job_id,this.fk_rec_id,this.inter_add,this.inter_date)).subscribe(
        (data:any)=>{
              console.log(data);
-       }
+             this.route.navigate(['menu/interview']);
+            }
      );
 
-     this.route.navigate(['menu/interview']);
+
    }
 
    backPage(){

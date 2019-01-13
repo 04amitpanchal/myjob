@@ -16,33 +16,33 @@
     </mat-form-field>
 
       <mat-form-field  id="country">
-            <mat-select [(value)]="selected_country" [(ngModel)]="country_model_value">
+            <mat-select [(ngModel)]="country_model_value" placeholder="Country">
               <mat-option value="option1">Country</mat-option>
             <mat-option  *ngFor="let country of country_list" [value]="country">{{country}}</mat-option>
                </mat-select>
           </mat-form-field>
           <mat-form-field id="state">
-            <mat-select [(value)]="selected_state" [(ngModel)]="state_model_value" >
+            <mat-select [(value)]="selected_state" [(ngModel)]="state_model_value" placeholder="State" >
               <mat-option value="option1">State</mat-option>
               <mat-option *ngFor="let state of state_list" [value]="state">{{state}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field id="city">
-            <mat-select [(value)]="selected_city" [(ngModel)]="city_model_value">
+            <mat-select [(value)]="selected_city" [(ngModel)]="city_model_value" placeholder="City">
                 <mat-option value="option1">city</mat-option>
             <mat-option *ngFor="let city of city_list" [value]="city">{{city}}</mat-option>
                           </mat-select>
           </mat-form-field>
           <br>
           <mat-form-field id="Empfield">
-            <mat-select [(value)]="selected_department"  [(ngModel)]="department_model_value" >
+            <mat-select [(value)]="selected_department"  [(ngModel)]="department_model_value" placeholder="Department" >
                 <mat-option value="option1">Department</mat-option>
                 <mat-option *ngFor="let dep of department_list"  [value]="dep">{{dep}}</mat-option>
             </mat-select>
           </mat-form-field>
           <br>
-          <div  class="imageshow" id="uploadshowimg" style="border-radius: 50%;height:150px;width:150px;">
-            <img  alt="">
+          <div  class="imageshow" id="uploadshowimg" >
+            <img src="http://localhost:3000/images/empPhotoes/{{emp_photo}}" style="margin-left: 30px;height: 100px;width:100px;border-radius: 50%;" alt="">
           </div>
 
           <br>

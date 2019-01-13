@@ -105,6 +105,7 @@ department_model_value:string;
 
   onChange(value){
     this.selectedFile=<File>value.target.files[0];
+
   }
 
 
@@ -129,11 +130,11 @@ department_model_value:string;
     this.addEmp.addEmp(fd).subscribe(
       (data:any)=>{
               console.log(data);
-
+              this._route.navigate(['menu/employee']);
       }
 
     );
-    this._route.navigate(['menu/employee']);
+
   }
 
   }

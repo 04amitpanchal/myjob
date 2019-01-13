@@ -51,9 +51,10 @@ export class UpdatejobComponent implements OnInit {
       (data:any)=>{
         console.log(data);
         this.updatearr.push(new ujobclass(this.job_id,this.fk_rec_id,this.job_title,this.posted_date,this.skill_req,this.job_desc,this.salary_min,this.salary_max,this.fk_company_name));
+        this.route.navigate(['menu/job']);
       }
     );
-    this.route.navigate(['menu/job']);
+
   }
 
   backPage(){

@@ -23,8 +23,8 @@ export class RecruiterComponent implements OnInit {
   ngOnInit() {
     this.admin.getAllAdmin().subscribe(
       (data:Adminclass[])=>{
-        this.recruiterdetails=data;
         this.rec_photo=data[0].rec_photo;
+        this.recruiterdetails=data;
         console.log(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.data=data;

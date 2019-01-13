@@ -59,10 +59,10 @@ city_list:string[]=[
  ];
 ;
 department_list:string[]=["it","management"];
-selected_country="option1";
-selected_state="option1";
-selected_city="option1";
-selected_department="option1";
+selected_country="";
+selected_state="";
+selected_city="";
+selected_department="";
 selectedFile:File=null;
 emp_id:string;
 id:string;
@@ -84,7 +84,11 @@ department_model_value:string;
         this.emp_password=data[0].emp_password;
         this.first_name=data[0].first_name;
         this.last_name=data[0].last_name;
-        // this.country_list.values=data[0].country;
+        this.emp_photo=data[0].emp_photo;
+        this.country_model_value=data[0].country;
+        this.state_model_value=data[0].state;
+        this.city_model_value=data[0].city;
+        this.department_model_value=data[0].emp_field;
       }
     );
   }
@@ -117,9 +121,10 @@ department_model_value:string;
       (data:any)=>{
               console.log(data);
               alert("details updaated sucessfully");
-      }
+              this._route.navigate(['menu/employee']);
+            }
     );
-    this._route.navigate(['menu/employee']);
+
   }
   }
 

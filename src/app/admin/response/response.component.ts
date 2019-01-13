@@ -89,6 +89,7 @@ export class ResponseComponent implements OnInit {
             this.getAllResponseDetails.splice(this.getAllResponseDetails.indexOf(this.getResponse[this.i]));
           }
          }
+         this.ngOnInit();
          this.dataSource.data=this.getAllResponseDetails;
         });
       }

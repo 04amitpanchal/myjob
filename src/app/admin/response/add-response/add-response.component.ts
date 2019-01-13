@@ -28,6 +28,13 @@ res_id:number;
 fk_apply_id:number;
 res_staus:string;
 res_desc:string;
+selected_status="option1";
+status:string[]=[
+  'None',
+  'Accept',
+  'Reject'
+];
+
 
 constructor(private addResponse:AddResponseService,
   private _route:Router,
@@ -44,10 +51,11 @@ AddResponseDetails()
   this.addResponse.addResponse(new ResponseClass(this.res_id,this.fk_apply_id,this.res_staus,this.res_desc)).subscribe(
     (data:any)=>{
       console.log(data);
-      alert("Succfully Added Response Data");
+      //alert("Succfully Added Response Data");
+      this._route.navigate(['menu/response']);
     }
   );
-  this._route.navigate(['menu/response']);
+
 }
 
 
