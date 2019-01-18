@@ -26,7 +26,7 @@ export class ResponseComponent implements OnInit {
   // countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllResponseDetails);
-  displayedColumns: string[] = ['checkItem','res_id','fk_apply_id','res_status','res_desc','Action'];
+  displayedColumns: string[] = ['checkItem','res_status','res_desc','Action'];
 
 
   constructor(

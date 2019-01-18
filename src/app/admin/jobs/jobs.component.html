@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12" style="margin-top: 20px;">
           <mat-form-field style="text-align: center;background-color: #1ac8f3;color: #303030;width: 98%;margin-left: 10px;">
-            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Emp here">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Jobs here">
           </mat-form-field>
 
 
@@ -44,7 +44,7 @@
          </button>
 
          <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Action </th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;">  </th>
           <td mat-cell *matCellDef="let element">
             <button class="btn" style="background-color:#1ac8f3;">
               <mat-icon style="color: black;" aria-label="Example icon-button with a heart icon" (click)="onUpdateJob(element)">edit</mat-icon>

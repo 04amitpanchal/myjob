@@ -24,7 +24,7 @@ export class InterviewComponent implements OnInit {
   countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllInterviewDetails);
-  displayedColumns: string[] = ['checkItem','inter_id','fk_emp_id','fk_job_id','fk_rec_id','inter_add','inter_date','Action'];
+  displayedColumns: string[] = ['checkItem','fk_emp_id','fk_rec_id','inter_add','inter_date','Action'];
 
   constructor(
       private interview:InterviewService,

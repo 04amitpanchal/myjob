@@ -4,7 +4,7 @@ table{
 }
 .container-fluid  {
   height: 100%;width: 100%;
-  background-color: #303030 ;
+  /* background-color:rgb(153, 145, 128); */
 }
 mat-form-field{
   width: 100%;

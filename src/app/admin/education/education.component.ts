@@ -28,7 +28,7 @@ export class EducationComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllEducationDetails);
-  displayedColumns: string[] = ['checkItem','edu_id','fk_emp_id','emp_qual','emp_pass_year','emp_uni', 'emp_exp','emp_skill1','emp_skill2','Action'];
+  displayedColumns: string[] = ['checkItem','fk_emp_id','emp_qual','emp_pass_year','emp_uni', 'emp_exp','emp_skill1','emp_skill2','Action'];
 
 
   constructor(

@@ -24,7 +24,7 @@ export class ApplyComponent implements OnInit {
   countries:string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource(this.getAllApplyDetails);
-  displayedColumns: string[] = ['checkItem','apply_id','fk_emp_id','fk_job_id','apply_date','Action'];
+  displayedColumns: string[] = ['checkItem','fk_emp_id','fk_job_id','apply_date','Action'];
 
   constructor(
        private _route:Router,

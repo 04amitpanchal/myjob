@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12" style="margin-top: 20px;">
           <mat-form-field style="margin-left: 10px;width: 98%;text-align: center;background-color: #1ac8f3;color: #303030">
-            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Emp here">
+            <input  matInput (keyup)="applyFilter($event.target.value)"  placeholder="Search Interview Details here">
           </mat-form-field>
       <table class="col-md-12" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:98%;">
         <ng-container class="col-md-12" matColumnDef="checkItem" >
@@ -15,43 +15,43 @@
 
 
 
-         <ng-container matColumnDef="inter_id" >
+         <!-- <ng-container matColumnDef="inter_id" >
             <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter id </th>
             <td mat-cell *matCellDef="let element">{{element.inter_id}}</td>
-          </ng-container>
+          </ng-container> -->
 
 
          <ng-container matColumnDef="fk_emp_id" >
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_emp_id </th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Emp Email </th>
           <td mat-cell *matCellDef="let element">{{element.fk_emp_id}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="fk_job_id" >
+        <!-- <ng-container matColumnDef="fk_job_id" >
           <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_job_id </th>
           <td mat-cell *matCellDef="let element">{{element.fk_job_id}}</td>
-        </ng-container>
+        </ng-container> -->
 
 
         <ng-container matColumnDef="fk_rec_id" >
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> fk_rec_id </th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Rec Email </th>
           <td mat-cell *matCellDef="let element">{{element.fk_rec_id}}</td>
         </ng-container>
 
 
         <ng-container matColumnDef="inter_add" >
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter_add </th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Interview Add </th>
           <td mat-cell *matCellDef="let element">{{element.inter_add}}</td>
         </ng-container>
 
 
         <ng-container matColumnDef="inter_date" >
-          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> inter_date </th>
+          <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Interview Date </th>
           <td mat-cell *matCellDef="let element">{{element.inter_date}}</td>
         </ng-container>
 
 
           <ng-container matColumnDef="Action">
-            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> Edit Details </th>
+            <th mat-header-cell *matHeaderCellDef style="background-color: #1ac8f3;color: white;color: #303030;font-size:15px;font-weight: bold;"> </th>
             <td mat-cell *matCellDef="let element">
 
 
